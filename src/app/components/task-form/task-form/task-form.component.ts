@@ -9,7 +9,6 @@ import { TaskService } from '../../../service/task.service';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css'],
 })
-
 export class TaskFormComponent {
   title = '';
   description = '';

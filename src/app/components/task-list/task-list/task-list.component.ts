@@ -17,8 +17,9 @@ export class TaskListComponent implements OnInit {
   selectedTask: Task | null = null;
   filterOption: string = 'status';
   sortOrder: 'ascending' | 'descending' = 'descending';
-  showModal: boolean = false; 
+  showModal: boolean = false;
   logModalTask: Task | null = null; // Added property to store task for which log modal is opened
+  searchQuery: string = '';
 
   @ViewChild('taskForm') taskFormElement!: ElementRef;
 
@@ -33,13 +34,20 @@ export class TaskListComponent implements OnInit {
     this.applyFilter();
   }
 
+  onSearch() {
+    this.applyFilter();
+  }
+
   updateTaskStatus(id: string, status: 'to-do' | 'in-progress' | 'completed') {
     const task = this.filteredTasks.find((t) => t.id === id);
     if (task) {
       const updatedTask: Task = {
         ...task,
         status,
-        history: [...task.history, `Status changed to ${status} on ${new Date().toLocaleString()}`],
+        history: [
+          ...task.history,
+          `Status changed to ${status} on ${new Date().toLocaleString()}`,
+        ],
       };
       this.taskService.updateTaskDetails(updatedTask);
     }
@@ -73,32 +81,43 @@ export class TaskListComponent implements OnInit {
         ...this.selectedTask,
         history: [...this.selectedTask.history], // Copy existing history
       };
-  
+
       // Check each field for changes and update history
       if (originalTask.title !== updatedTask.title) {
-        updatedTask.history.push(`Title changed from '${originalTask.title}' to '${updatedTask.title}'`);
+        updatedTask.history.push(
+          `Title changed from '${originalTask.title}' to '${updatedTask.title}'`
+        );
       }
       if (originalTask.description !== updatedTask.description) {
-        updatedTask.history.push(`Description changed from '${originalTask.description}' to '${updatedTask.description}'`);
+        updatedTask.history.push(
+          `Description changed from '${originalTask.description}' to '${updatedTask.description}'`
+        );
       }
       if (originalTask.dueDate !== updatedTask.dueDate) {
-        updatedTask.history.push(`Due Date changed from '${originalTask.dueDate}' to '${updatedTask.dueDate}'`);
+        updatedTask.history.push(
+          `Due Date changed from '${originalTask.dueDate}' to '${updatedTask.dueDate}'`
+        );
       }
       if (originalTask.priority !== updatedTask.priority) {
-        updatedTask.history.push(`Priority changed from '${originalTask.priority}' to '${updatedTask.priority}'`);
+        updatedTask.history.push(
+          `Priority changed from '${originalTask.priority}' to '${updatedTask.priority}'`
+        );
       }
       if (originalTask.status !== updatedTask.status) {
-        updatedTask.history.push(`Status changed from '${originalTask.status}' to '${updatedTask.status}'`);
+        updatedTask.history.push(
+          `Status changed from '${originalTask.status}' to '${updatedTask.status}'`
+        );
       }
-  
+
       // Add generic update log
-      updatedTask.history.push(`Details updated on ${new Date().toLocaleString()}`);
-  
+      updatedTask.history.push(
+        `Details updated on ${new Date().toLocaleString()}`
+      );
+
       this.taskService.updateTaskDetails(updatedTask);
       this.selectedTask = null;
     }
   }
-  
 
   applyFilter() {
     this.tasks$.subscribe((tasks) => {
@@ -119,6 +138,16 @@ export class TaskListComponent implements OnInit {
           break;
       }
 
+      if (this.searchQuery) {
+        filtered = tasks.filter(
+          (task) =>
+            task.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            task.description
+              .toLowerCase()
+              .includes(this.searchQuery.toLowerCase())
+        );
+      }
+      // console.log(this.searchQuery);
       this.filteredTasks = filtered;
     });
   }

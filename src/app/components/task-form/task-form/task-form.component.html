@@ -4,13 +4,13 @@
     <form (ngSubmit)="addTask()" #taskForm="ngForm">
       <div class="form-group mb-3">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title" 
-        placeholder="Add title🗒️ here ... " required />
+        <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title"
+          placeholder="Add title🗒️ here ... " required />
       </div>
       <div class="form-group mb-3">
         <label for="description">Description</label>
         <textarea class="form-control" id="description" [(ngModel)]="description" name="description"
-        placeholder="Add description🗒️ here ... " required></textarea>
+          placeholder="Add description🗒️ here ... " required></textarea>
       </div>
       <div class="form-group mb-3">
         <label for="dueDate">Due Date</label>

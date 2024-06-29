@@ -5,9 +5,9 @@
     text-align: center;
     position: fixed;
     bottom: 0;
-    width: 100%; /* Ensure full width */
-    position: fixed; /* Stick to the bottom */
-    bottom: 0; /* Stick to the bottom */
+    width: 100%;
+    position: fixed;
+    bottom: 0;
     left: 0;
 }
 

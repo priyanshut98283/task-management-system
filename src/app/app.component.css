@@ -1,22 +1,22 @@
 .bg-orange {
-    background-color: #118ab2;
-    width: 100%;
-    top: 0; 
-    z-index: 1000; 
-  }
-  .text-center {
-    margin-top: -10px;
-  }
-  
-  .bg-orange h1 {
-    height: inherit; 
-  }
-  
-  .container {
-    margin-top: 20px; 
-  }
+  background-color: #118ab2;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.text-center {
+  margin-top: -10px;
+}
+
+.bg-orange h1 {
+  height: inherit;
+}
+
+.container {
+  margin-top: 20px;
+}
 
 .parent {
   font-family: sans-serif;
 }
-  

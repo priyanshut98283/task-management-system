@@ -3,9 +3,8 @@
   margin-top: 30px;
 }
 
-/* Task Form Styling */
 .task-form-container {
-  display: none; /* Hide form by default */
+  display: none;
 }
 
 .task-container,
@@ -14,7 +13,7 @@
   border-radius: 8px;
   padding: 20px;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   position: relative;
   margin-bottom: 100px;
   display: block;
@@ -34,8 +33,8 @@
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-size: 14px;
-  width: calc(100% - 24px); /* Adjusted width to account for padding */
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  width: calc(100% - 24px);
+  box-sizing: border-box;
 }
 
 .task-form button {
@@ -58,7 +57,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 15px;
-  gap:10px;
+  gap: 10px;
 }
 
 .button-group button {
@@ -72,7 +71,7 @@
   transition: opacity 0.3s ease;
   flex: 1 1 calc(33.333% - 10px);
   min-width: 120px;
-  margin-bottom: 10px; /* Spacing between buttons */
+  margin-bottom: 10px;
   background-color: #3aca5b;
   color: white;
 }
@@ -101,11 +100,9 @@
   line-height: 1.4;
 }
 
-/* Additional Styling for Filter Section */
-
 form {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to next line on smaller screens */
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
@@ -137,12 +134,12 @@ form button.highlight:hover {
 
 @media (max-width: 768px) {
   .button-group button {
-    flex: 1 1 100%; /* Full width for buttons on smaller screens */
+    flex: 1 1 100%;
   }
 }
-/* Modal Styles */
+
 .modal {
-  display: none; /* Hide modal by default */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -150,33 +147,42 @@ form button.highlight:hover {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4); /* Transparency for modal background */
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
-  max-width: 600px; /* Adjust width as needed */
+  width: 70%;
+  height: 70%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  max-height: calc(100% - 40px);
 }
 
 .close {
-  color: #aaa;
+  color: #f04040;
+  position: fixed;
+  top: 10px;
+  right: 10px;
   float: right;
-  font-size: 28px;
+  font-size: 50px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(218, 47, 31);
   text-decoration: none;
-  cursor: pointer;
 }
 
 .show-modal {
-  display: block; /* Show modal when showModal is true */
+  display: block;
+  position: fixed;
 }
