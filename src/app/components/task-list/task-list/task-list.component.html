@@ -1,0 +1,62 @@
+<div>
+  <h1 style="margin-top: 20px;margin-bottom: 20px;">Filter</h1>
+  <form #filterForm="ngForm">
+    <select [(ngModel)]="filterOption" name="filterOption" required>
+      <option value="none">Filter by</option>
+      <option value="status">Status</option>
+      <option value="priority">Priority</option>
+      <option value="dueDate">Due Date</option>
+    </select>
+    <button type="button" [disabled]="!filterForm.valid" (click)="applyFilter()"
+      [class.highlight]="filterForm.valid">Apply Filter</button>
+    <button type="button" (click)="toggleSortOrder()">Toggle Sort Order ({{ sortOrder }})</button>
+    <button type="button" (click)="exportToCSV()">Download CSV</button>
+  </form>
+</div>
+
+<h1>Tasks List</h1>
+<!-- Task List -->
+<div *ngIf="tasks$ | async as tasks">
+  <div *ngFor="let task of filteredTasks.length ? filteredTasks : tasks" class="task-wrapper">
+    <!-- Update Task Form -->
+    <div *ngIf="selectedTask?.id === task.id" class="task-form-container">
+      <form #taskForm="ngForm" class="task-form" (ngSubmit)="submitUpdate()">
+        <input *ngIf="selectedTask" type="text" [(ngModel)]="selectedTask.title" name="title" placeholder="Title" required>
+        <textarea *ngIf="selectedTask" [(ngModel)]="selectedTask.description" name="description" placeholder="Description" required></textarea>
+        <input *ngIf="selectedTask" type="date" [(ngModel)]="selectedTask.dueDate" name="dueDate" required>
+        <select *ngIf="selectedTask" [(ngModel)]="selectedTask.priority" name="priority" required>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit" [disabled]="!taskForm.valid">Update</button>
+      </form>
+    </div>
+    <div class="task-container">
+      <p><strong>Title:</strong> {{ task.title }}</p>
+      <p><strong>Description:</strong> {{ task.description }}</p>
+      <p><strong>Due Date:</strong> {{ task.dueDate | date }}</p>
+      <p><strong>Priority:</strong> {{ task.priority }}</p>
+      <p><strong>Status:</strong> {{ task.status }}</p>
+      <div class="button-group">
+        <button (click)="updateTaskStatus(task.id, 'to-do')">Mark as To-Do</button>
+        <button (click)="updateTaskStatus(task.id, 'in-progress')">Mark as In Progress</button>
+        <button (click)="updateTaskStatus(task.id, 'completed')">Mark as Completed</button>
+        <button (click)="onEditTask(task)">Update Task</button>
+        <button (click)="deleteTask(task.id)">Delete Task</button>
+        <button (click)="toggleLogModal(task)">Show log</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Log Modal -->
+<div class="modal" [class.show-modal]="showModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Task Log History</h2>
+    <ul>
+      <li *ngFor="let log of logModalTask?.history">{{ log }}</li>
+    </ul>
+  </div>
+</div>

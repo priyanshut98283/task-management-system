@@ -1,0 +1,31 @@
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Ensure full width */
+    position: fixed; /* Stick to the bottom */
+    bottom: 0; /* Stick to the bottom */
+    left: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-content span {
+    display: block;
+}
+
+.footer-content i {
+    font-size: 1.2em;
+    margin: 0 5px;
+}
+
+.footer-content span:last-child {
+    margin-top: 5px;
+}

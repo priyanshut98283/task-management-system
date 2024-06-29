@@ -1,0 +1,64 @@
+.custom-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .custom-card .card-title {
+    color: #2a9d8f;
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .custom-card form {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .custom-card .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .custom-card label {
+    font-weight: bold;
+  }
+  
+  .custom-card .btn-primary {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+  }
+  
+  .custom-card .btn-primary:hover {
+    background-color: #4b3cb3;
+    border-color: #4b3cb3;
+  }
+  
+  .custom-card .btn-primary:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .custom-card input[type="text"],
+  .custom-card input[type="date"],
+  .custom-card textarea,
+  .custom-card select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .custom-card input[type="text"]:focus,
+  .custom-card input[type="date"]:focus,
+  .custom-card textarea:focus,
+  .custom-card select:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+  }
+  
