@@ -55,8 +55,17 @@ export class TaskListComponent implements OnInit {
 
   onEditTask(task: Task) {
     this.selectedTask = { ...task };
-    this.showModal = false; // Ensure log modal is closed when editing starts
-    this.scrollToTop();
+    this.showModal = false;
+    // this.scrollToTop();
+  }
+
+  closeEditForm() {
+    this.selectedTask = null;
+    document.body.classList.remove('no-scroll'); // Allow page scrolling
+    const taskFormElement = document.querySelector('.task-form-container');
+    if (taskFormElement) {
+      taskFormElement.classList.remove('show-edit-form');
+    }
   }
 
   deleteTask(id: string) {
@@ -66,48 +75,46 @@ export class TaskListComponent implements OnInit {
   }
 
   scrollToTop() {
-    if (this.taskFormElement) {
-      this.taskFormElement.nativeElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   submitUpdate() {
     if (this.selectedTask) {
-      const originalTask = { ...this.selectedTask }; // Make a copy of the original task
+      // const originalTask = { ...this.selectedTask }; // Make a copy of the original task
       const updatedTask: Task = {
         ...this.selectedTask,
         history: [...this.selectedTask.history], // Copy existing history
       };
 
       // Check each field for changes and update history
-      if (originalTask.title !== updatedTask.title) {
-        updatedTask.history.push(
-          `Title changed from '${originalTask.title}' to '${updatedTask.title}'`
-        );
-      }
-      if (originalTask.description !== updatedTask.description) {
-        updatedTask.history.push(
-          `Description changed from '${originalTask.description}' to '${updatedTask.description}'`
-        );
-      }
-      if (originalTask.dueDate !== updatedTask.dueDate) {
-        updatedTask.history.push(
-          `Due Date changed from '${originalTask.dueDate}' to '${updatedTask.dueDate}'`
-        );
-      }
-      if (originalTask.priority !== updatedTask.priority) {
-        updatedTask.history.push(
-          `Priority changed from '${originalTask.priority}' to '${updatedTask.priority}'`
-        );
-      }
-      if (originalTask.status !== updatedTask.status) {
-        updatedTask.history.push(
-          `Status changed from '${originalTask.status}' to '${updatedTask.status}'`
-        );
-      }
+      // if (originalTask.title !== updatedTask.title) {
+      //   updatedTask.history.push(
+      //     `Title changed from '${originalTask.title}' to '${updatedTask.title}'`
+      //   );
+      // }
+      // if (originalTask.description !== updatedTask.description) {
+      //   updatedTask.history.push(
+      //     `Description changed from '${originalTask.description}' to '${updatedTask.description}'`
+      //   );
+      // }
+      // if (originalTask.dueDate !== updatedTask.dueDate) {
+      //   updatedTask.history.push(
+      //     `Due Date changed from '${originalTask.dueDate}' to '${updatedTask.dueDate}'`
+      //   );
+      // }
+      // if (originalTask.priority !== updatedTask.priority) {
+      //   updatedTask.history.push(
+      //     `Priority changed from '${originalTask.priority}' to '${updatedTask.priority}'`
+      //   );
+      // }
+      // if (originalTask.status !== updatedTask.status) {
+      //   updatedTask.history.push(
+      //     `Status changed from '${originalTask.status}' to '${updatedTask.status}'`
+      //   );
+      // }
 
       // Add generic update log
       updatedTask.history.push(
@@ -116,6 +123,7 @@ export class TaskListComponent implements OnInit {
 
       this.taskService.updateTaskDetails(updatedTask);
       this.selectedTask = null;
+      // this.scrollToTop(); // Scroll to top after the task is updated
     }
   }
 

@@ -32,7 +32,7 @@
   <div *ngIf="tasks$ | async as tasks">
     <div *ngFor="let task of filteredTasks.length ? filteredTasks : tasks" class="task-wrapper">
       <!-- Update Task Form -->
-      <div *ngIf="selectedTask?.id === task.id" class="task-form-container">
+      <div *ngIf="selectedTask?.id === task.id" class="task-form-container show-edit-form">
         <form #taskForm="ngForm" class="task-form" (ngSubmit)="submitUpdate()">
           <input *ngIf="selectedTask" type="text" [(ngModel)]="selectedTask.title" name="title" placeholder="Title"
             required>
@@ -78,5 +78,8 @@
         <li *ngFor="let log of logModalTask?.history">{{ log }}</li>
       </ul>
     </div>
+  </div>
+  <div class="scroll-to-top" (click)="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
   </div>
 </div>

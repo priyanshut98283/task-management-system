@@ -3,10 +3,6 @@
   margin-top: 30px;
 }
 
-.task-form-container {
-  display: none;
-}
-
 .task-container,
 .task-form-container {
   border: 1px solid #e0e0e0;
@@ -14,14 +10,24 @@
   padding: 20px;
   background-color: #ffffff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  position: relative;
   margin-bottom: 100px;
   display: block;
 }
 
+.task-form-container {
+  z-index: 1000;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .task-form {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+  z-index: 1001;
+  position: relative;
+  margin: 0;
 }
 
 .task-form input,
@@ -141,7 +147,8 @@ form button.highlight:hover {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1001;
+  /* Ensure modals are above everything */
   left: 0;
   top: 0;
   width: 100%;
@@ -167,10 +174,10 @@ form button.highlight:hover {
 
 .close {
   color: #f04040;
-  position: fixed;
+  position: absolute;
+  /* Positioning within the modal content */
   top: 10px;
   right: 10px;
-  float: right;
   font-size: 50px;
   font-weight: bold;
   cursor: pointer;
@@ -184,5 +191,30 @@ form button.highlight:hover {
 
 .show-modal {
   display: block;
+}
+
+.scroll-to-top {
   position: fixed;
+  bottom: 70px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #118ab2;
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.scroll-to-top:hover {
+  background-color: #0d6c90;
+  transform: translateY(-3px);
+}
+
+.scroll-to-top i {
+  color: white;
+  font-size: 24px;
 }
