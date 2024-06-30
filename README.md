@@ -22,6 +22,8 @@ This project is a Task Management System developed using Angular, featuring a us
 - `Developed using the latest version of Angular.`
 - `Implemented state management via NgRx store.`
 - `Utilized local storage for data persistence.`
+- `In our Task Management System, we utilize the uuid npm package to generate unique identifiers for tasks.`
+- `Used Bootstrap for styling to ensure a responsive and visually appealing user interface throughout the application.`
 - `Hosted application on vercel.` [Vercel hosted link](https://task-management-system-rust.vercel.app/).
 
 ## Additional Features
