@@ -1,3 +1,5 @@
+![Screenshot Dekstop 1](https://github.com/priyanshut98283/task-management-system/assets/86971883/0a224289-2b4c-489f-9133-9d127046a363)
+
 ## Task Management System
 
 This project is a Task Management System developed using Angular, featuring a user-friendly interface where users can manage tasks effectively.
