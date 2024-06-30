@@ -31,6 +31,24 @@ This project is a Task Management System developed using Angular, featuring a us
 - **Toggle Sort Order:** `Users can toggle between ascending and descending order for task sorting.`
 - **Footer and Navbar Components:** `Implemented navbar and footer components.`
 
+## Screenshots
+
+## Dekstop
+![Screenshot Dekstop 1](https://github.com/priyanshut98283/task-management-system/assets/86971883/a821c6fe-0e85-44e0-9ee0-82c0476bef52)
+![Screenshot Dekstop 2](https://github.com/priyanshut98283/task-management-system/assets/86971883/596be267-0cc2-4844-94a5-af812bbac7dc)
+![Screenshot Dekstop 3](https://github.com/priyanshut98283/task-management-system/assets/86971883/55a4457e-5a8e-40c3-b07e-77d87420d2f5)
+![Screenshot Dekstop 4](https://github.com/priyanshut98283/task-management-system/assets/86971883/95b06e20-f986-4a1c-934d-702b51d87bad)
+![Screenshot Dekstop 5](https://github.com/priyanshut98283/task-management-system/assets/86971883/bbcc283f-51fd-4277-a87a-edfc302c8847)
+![Screenshot Dekstop 6](https://github.com/priyanshut98283/task-management-system/assets/86971883/e82fbcff-5107-4ae3-8b08-9aef36c7be19)
+
+## Mobile View
+![Screenshot Mobile 1](https://github.com/priyanshut98283/task-management-system/assets/86971883/8677e64f-d4ae-4b33-859e-f5f349977b41)
+![Screenshot Mobile 2](https://github.com/priyanshut98283/task-management-system/assets/86971883/113df4ad-cc38-467c-8326-9ede855b613c)
+![Screenshot Mobile 3](https://github.com/priyanshut98283/task-management-system/assets/86971883/55e4980f-2ab2-44a8-8d7c-4d4b973df2a8)
+![Screenshot Mobile 4](https://github.com/priyanshut98283/task-management-system/assets/86971883/5555c8a9-b64a-4afc-9485-7a97e8b36cd4)
+
+## CSV File
+![Screenshot Dekstop 7](https://github.com/priyanshut98283/task-management-system/assets/86971883/bb16e1e3-da1b-4eb9-98f0-b7f2de148720)
 
 ## Angular Project :
 
